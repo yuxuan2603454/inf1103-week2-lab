@@ -1,0 +1,1 @@
+Docker containers use ephemeral storage, which means files saved inside a container may disappear when the container stops and is removed. Since the container is run using --rm, its writable storage is deleted after it stops. To preserve the final inventory count, I could use a Docker volume or bind mount to store the file outside the container.
