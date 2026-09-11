@@ -24,3 +24,19 @@ while True:
         failed_entries += 1
         continue
 
+    # Process a valid non-negative integer
+    else:
+        quantity = int(entry)
+        inventory += quantity
+
+        print(f"Quantity accepted. Current inventory: {inventory}")
+
+        # Stop immediately if inventory exceeds 500
+        if inventory > 500:
+            print("OVERSTOCK ALERT: Inventory has exceeded 500 units!")
+            break
+
+# Display the final report
+print("\nInventory Audit Report")
+print(f"Total Units Processed: {inventory}")
+print(f"Number of Failed/Rejected Entries: {failed_entries}")
