@@ -23,3 +23,24 @@ def generate_report(total_units, failed_attempts):
     print("\n--- Final Report ---")
     print("Total Deliveries Processed:", total_units)
     print("Number of Failed/Rejected Entries:", failed_attempts)
+
+inventory = 0
+deliveries_processed = 0
+failed_attempts = 0
+
+while True:
+    value = get_valid_input()
+
+    if value == "quit":
+        break
+
+    inventory = process_delivery(inventory, value)
+    tax = calculate_tax(value)
+
+    deliveries_processed += 1
+
+    print("Delivery accepted:", value)
+    print("Current inventory:", inventory)
+    print("Tax for this delivery:", tax)
+
+generate_report(deliveries_processed, failed_attempts)
