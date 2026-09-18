@@ -1,15 +1,14 @@
 def get_valid_input():
-    while True:
-        user_input = input("Enter stock quantity (or 'quit' to exit): ")
+    user_input = input("Enter stock quantity (or 'quit' to exit): ")
 
-        if user_input.lower() == "quit":
-            return "quit"
+    if user_input.lower() == "quit":
+        return "quit"
 
-        if not user_input.isdigit():
-            print("Error: Please enter a valid positive integer.")
-            continue
+    if not user_input.isdigit():
+        print("Error: Please enter a valid positive integer.")
+        return None
 
-        return int(user_input)
+    return int(user_input)
 
 def process_delivery(current_total, new_value):
     new_total = current_total + new_value
@@ -33,6 +32,10 @@ while True:
 
     if value == "quit":
         break
+
+    if value is None:
+        failed_attempts += 1
+        continue
 
     inventory = process_delivery(inventory, value)
     tax = calculate_tax(value)
